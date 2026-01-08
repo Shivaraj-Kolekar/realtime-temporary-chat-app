@@ -12,7 +12,8 @@ const Page = () => {
     </Suspense>
   );
 };
-export default function Home() {
+export default Page;
+function Home() {
   const router = useRouter();
   const searchparams = useSearchParams();
   const wasDestroyed = searchparams.get("destroyed");

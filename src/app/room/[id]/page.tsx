@@ -6,13 +6,20 @@ import { useRealtime } from "@/lib/realtime-client";
 import { useMutation, useQueries, useQuery } from "@tanstack/react-query";
 import { format } from "date-fns/fp";
 import { useParams, useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 const formatTimeRemaining = (seconds: number) => {
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
   return `${mins}:${secs.toString().padStart(2, "0")}`;
 };
-const Page = () => {
+export const Page = () => {
+  return (
+    <Suspense>
+      <RoomPage />
+    </Suspense>
+  );
+};
+const RoomPage = () => {
   const params = useParams();
   const { username } = useUsername();
   const router = useRouter();
@@ -78,7 +85,7 @@ const Page = () => {
           sender: username,
           text,
         },
-        { query: { roomid } }
+        { query: { roomid } },
       );
     },
   });
@@ -211,4 +218,4 @@ const Page = () => {
     </>
   );
 };
-export default Page;
+export default RoomPage;
