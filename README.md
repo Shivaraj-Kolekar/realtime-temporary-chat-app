@@ -111,11 +111,7 @@ If you are unsure which exact names your code expects, inspect `src/lib/redis.ts
 
 2. Install dependencies
    ```
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
+   bun add .
    ```
 
 3. Add `.env.local` (see above).
@@ -123,7 +119,8 @@ If you are unsure which exact names your code expects, inspect `src/lib/redis.ts
 4. Run the dev server
    ```
    npm run dev
-   # or yarn dev / pnpm dev
+   # or
+   bun run dev
    ```
 
 5. Open http://localhost:3000
@@ -158,7 +155,7 @@ Notes:
 - Scalability: Upstash scales for serverless usage but you should review rate limits & plan for high traffic.
 - Security: consider adding rate limiting, input sanitization, and moderation tools for public deployments.
 - Hard-coded assumptions: room size limits, TTL default and exact env var names should be validated in the code before large-scale deployment.
-- Tests: There are no automated tests included (add unit/e2e tests as needed).
+- Tests: There are no automated tests included .
 
 ---
 
@@ -175,7 +172,7 @@ Notes:
 - API calls failing:
   - Ensure `NEXT_PUBLIC_API_URL` is set correctly in the environment for the client and in server environment if required.
 
-If you want, I can add an .env.example file and/or a short diagram that explains the request flow and the redis key schema this app uses.
+
 
 ---
 
@@ -185,17 +182,9 @@ Contributions, issues, and feature requests are welcome. If you'd like to:
 - Open an issue for bugs or feature requests
 - Send a PR for improvements (e.g. tests, CI, better environment handling, moderation, or persistence options)
 
-Please include a clear description of what you changed and why.
-
 ---
 
 ## License
 
-Specify a license for the repo (e.g. MIT). If you want me to add a LICENSE file, tell me which license you prefer and I can create one.
 
 ---
-
-If you'd like, I can:
-- Add an `.env.example` to the repo with the exact keys extracted from the code,
-- Create a short architecture diagram,
-- Or open a PR that replaces the current README with this version. Let me know which you prefer.
